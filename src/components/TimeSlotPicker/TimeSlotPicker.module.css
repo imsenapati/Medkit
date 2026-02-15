@@ -1,0 +1,146 @@
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.dateTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #1e293b;
+  margin: 0;
+}
+
+.timezone {
+  font-size: 13px;
+  color: #64748b;
+  background: #f1f5f9;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.sectionTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #64748b;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin: 0 0 10px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 8px;
+}
+
+.slot {
+  padding: 10px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  background: #fff;
+  text-align: center;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1e293b;
+  transition: all 0.15s;
+  position: relative;
+}
+
+.slot:hover:not(.slotUnavailable):not(.slotDisabled) {
+  border-color: #4f46e5;
+  background: #f5f3ff;
+}
+
+.slot:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.slotSelected {
+  composes: slot;
+  border-color: #4f46e5;
+  background: #4f46e5;
+  color: #fff;
+}
+
+.slotSelected:hover {
+  background: #4338ca;
+  border-color: #4338ca;
+}
+
+.slotUnavailable {
+  composes: slot;
+  background: #f8fafc;
+  color: #cbd5e1;
+  cursor: not-allowed;
+  border-color: #f1f5f9;
+}
+
+.slotDisabled {
+  composes: slot;
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.slotTime {
+  font-weight: 500;
+}
+
+.slotCapacity {
+  font-size: 11px;
+  color: #94a3b8;
+  margin-top: 2px;
+}
+
+.slotSelected .slotCapacity {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.emptyState {
+  text-align: center;
+  padding: 32px 16px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+.confirmation {
+  margin-top: 16px;
+  padding: 12px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: #166534;
+}
+
+.confirmIcon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    overflow-x: auto;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}

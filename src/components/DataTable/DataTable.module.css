@@ -1,0 +1,243 @@
+.wrapper {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tableContainer {
+  overflow-x: auto;
+  position: relative;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.thead {
+  background: #f8fafc;
+}
+
+.theadSticky {
+  composes: thead;
+}
+
+.theadSticky th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #f8fafc;
+}
+
+.th {
+  padding: 10px 12px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  color: #64748b;
+  border-bottom: 1px solid #e2e8f0;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.thSortable {
+  composes: th;
+  cursor: pointer;
+}
+
+.thSortable:hover {
+  color: #1e293b;
+  background: #f1f5f9;
+}
+
+.thContent {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.sortIcon {
+  width: 14px;
+  height: 14px;
+  color: #94a3b8;
+  flex-shrink: 0;
+}
+
+.sortIconActive {
+  composes: sortIcon;
+  color: #4f46e5;
+}
+
+.tr {
+  border-bottom: 1px solid #f1f5f9;
+  transition: background 0.1s;
+}
+
+.tr:last-child {
+  border-bottom: none;
+}
+
+.trClickable {
+  composes: tr;
+  cursor: pointer;
+}
+
+.trClickable:hover {
+  background: #f8fafc;
+}
+
+.trSelected {
+  background: #eff6ff;
+}
+
+.trSelected:hover {
+  background: #dbeafe;
+}
+
+.td {
+  padding: 10px 12px;
+  color: #1e293b;
+  vertical-align: middle;
+}
+
+.tdCenter {
+  composes: td;
+  text-align: center;
+}
+
+.tdRight {
+  composes: td;
+  text-align: right;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  accent-color: #4f46e5;
+  cursor: pointer;
+}
+
+.checkboxTh {
+  composes: th;
+  width: 40px;
+  text-align: center;
+}
+
+.checkboxTd {
+  composes: td;
+  width: 40px;
+  text-align: center;
+}
+
+/* Loading skeleton */
+.skeleton {
+  height: 16px;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+  border-radius: 4px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeletonRow {
+  composes: tr;
+}
+
+/* Empty state */
+.emptyState {
+  text-align: center;
+  padding: 48px 16px;
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  border-top: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #64748b;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.paginationInfo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.pageSizeSelect {
+  padding: 4px 8px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #1e293b;
+  background: #fff;
+}
+
+.pageSizeSelect:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.paginationControls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pageBtn {
+  padding: 6px 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 4px;
+  background: #fff;
+  color: #475569;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.1s;
+}
+
+.pageBtn:hover:not(:disabled) {
+  background: #f1f5f9;
+}
+
+.pageBtn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pageBtn:focus-visible {
+  outline: 2px solid #4f46e5;
+  outline-offset: 2px;
+}
+
+.pageBtnActive {
+  composes: pageBtn;
+  background: #4f46e5;
+  color: #fff;
+  border-color: #4f46e5;
+}
+
+.pageBtnActive:hover {
+  background: #4338ca;
+}
+
+/* Virtualized container */
+.virtualContainer {
+  overflow-y: auto;
+  position: relative;
+}
