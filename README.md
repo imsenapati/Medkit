@@ -1,12 +1,29 @@
 # MedKit
 
-A production-ready React component library for healthcare applications.
+A production-ready React component library for healthcare applications. Built with TypeScript, tested with Vitest, and documented with Storybook.
 
 ## Installation
 
 ```bash
 npm install medkit
 ```
+
+### Peer Dependencies
+
+MedKit requires React 18 or 19:
+
+```bash
+npm install react react-dom
+```
+
+## Quick Start
+
+```tsx
+import { AppointmentCard, VitalSignsInput } from 'medkit';
+import 'medkit/styles.css';
+```
+
+> **Note:** You must import `medkit/styles.css` once in your app for components to render correctly.
 
 ## Components
 
@@ -16,7 +33,6 @@ Displays appointment info with patient details, scheduling, status badge, and ac
 
 ```tsx
 import { AppointmentCard } from 'medkit';
-import 'medkit/styles.css';
 
 <AppointmentCard
   patient={{
@@ -107,18 +123,60 @@ import { DataTable } from 'medkit';
 />
 ```
 
+## Utilities
+
+MedKit exports helper functions for common healthcare data tasks:
+
+| Function | Description |
+|---|---|
+| `calculateAge(dob)` | Calculate age from a date of birth |
+| `formatTime(date)` | Format a date as a time string |
+| `formatDate(date)` | Format a date as a date string |
+| `formatDuration(minutes)` | Format a duration in minutes to a readable string |
+| `convertTemperature(value, unit)` | Convert between Fahrenheit and Celsius |
+| `convertWeight(value, unit)` | Convert between lbs and kg |
+| `convertHeight(value, unit)` | Convert between inches and cm |
+| `calculateBMI(weight, height)` | Calculate BMI from weight and height |
+| `getBMICategory(bmi)` | Get the BMI category label |
+| `isValueNormal(type, value)` | Check if a vital sign value is within normal range |
+| `validateVitalValue(type, value)` | Validate a vital sign input value |
+
+### Hooks
+
+- **`useDebounce(value, delay)`** — Debounce a value by a given delay in milliseconds.
+
 ## Development
 
 ```bash
-npm install          # Install dependencies
-npm run dev          # Watch mode build
-npm test             # Run tests
-npm run test:watch   # Watch mode tests
-npm run test:coverage # Coverage report
-npm run storybook    # Start Storybook
-npm run build        # Production build
-npm run lint         # Type check
+npm install            # Install dependencies
+npm run dev            # Watch mode build
+npm test               # Run tests
+npm run test:watch     # Watch mode tests
+npm run test:coverage  # Coverage report
+npm run storybook      # Start Storybook on port 6006
+npm run build          # Production build
+npm run lint           # Type check
 ```
+
+## Project Structure
+
+```
+src/
+├── components/
+│   ├── AppointmentCard/
+│   ├── DataTable/
+│   ├── MedicationSearch/
+│   ├── TimeSlotPicker/
+│   └── VitalSignsInput/
+├── hooks/
+│   └── useDebounce.ts
+├── utils/
+│   ├── date.ts
+│   └── vitals.ts
+└── index.ts
+```
+
+Each component directory contains the component, its types, CSS module, tests, and Storybook stories.
 
 ## Accessibility
 
